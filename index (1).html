@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SWANELIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#f6ede2; --peach:#f0dccb; --gold:#b79a6b; --gold2:#dcc79c; --gold3:#8c7048;
+    --taupe:#7a6650; --ink:#3d3329; --line:rgba(183,154,107,.45);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{
+    margin:0;color:var(--ink);min-height:100vh;overflow-x:hidden;
+    font-family:'IBM Plex Sans Arabic',Tahoma,sans-serif;
+    background-color:var(--cream);
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255,255,255,.9), transparent 65%),
+      radial-gradient(ellipse 70% 45% at 0% 100%, rgba(240,220,203,.9), transparent 70%),
+      radial-gradient(ellipse 60% 40% at 100% 60%, rgba(228,203,178,.5), transparent 70%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .4 0 0 0 0 .3 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-attachment:fixed;
+  }
+  html[lang=en] body{font-family:'Jost',sans-serif;font-weight:300}
+
+  /* علامة مائية */
+  .water{position:fixed;z-index:0;pointer-events:none;width:520px;max-width:120vw;bottom:-60px;inset-inline-end:-120px;opacity:.09;color:var(--gold3)}
+  header,main,footer,.lang{position:relative;z-index:1}
+
+  .lang{position:absolute;top:14px;inset-inline-start:14px;z-index:5;border:1px solid var(--line);background:rgba(255,255,255,.55);
+    backdrop-filter:blur(6px);border-radius:30px;padding:7px 16px;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:1px;
+    color:var(--gold3);cursor:pointer;width:auto;margin:0;box-shadow:none}
+
+  /* الشعار */
+  header{text-align:center;padding:52px 16px 14px}
+  .logo{width:170px;height:auto;margin:0 auto;display:block;color:var(--gold);filter:drop-shadow(0 6px 10px rgba(140,112,72,.18))}
+  .crown{width:64px;display:block;margin:0 auto 4px}
+  .logo-img{width:150px;height:150px;object-fit:cover;border-radius:50%;margin:0 auto;display:block;border:1px solid var(--line);box-shadow:0 8px 24px rgba(140,112,72,.22)}
+  .brand{
+    font-family:'Cinzel',serif;font-weight:500;direction:ltr;margin:6px 0 0;
+    font-size:clamp(38px,11.5vw,60px);letter-spacing:.22em;padding-left:.2em;line-height:1.15;
+    background:linear-gradient(110deg,#8c7048,#c9ae7a 40%,#a8895a 70%,#d8c196);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+  }
+  .brand-ar{font-family:'Amiri',serif;font-size:24px;color:var(--gold3);margin-top:2px}
+  .tag{font-family:'Jost',sans-serif;font-weight:400;font-size:11px;letter-spacing:.38em;color:var(--taupe);direction:ltr;margin-top:10px;text-transform:uppercase}
+  .tag-ar{font-family:'IBM Plex Sans Arabic',sans-serif;font-size:14px;color:var(--taupe);margin-top:4px}
+  .divider{display:flex;align-items:center;justify-content:center;gap:10px;margin:14px auto 0;width:200px;color:var(--gold)}
+  .divider::before,.divider::after{content:"";flex:1;height:1px;background:linear-gradient(to right,transparent,var(--gold))}
+  .divider::after{transform:scaleX(-1)}
+  .divider span{font-size:10px}
+  .ig{display:inline-block;margin-top:14px;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:1px;color:var(--gold3);
+    text-decoration:none;border:1px solid var(--line);padding:6px 18px;border-radius:30px;background:rgba(255,255,255,.5)}
+
+  main{max-width:600px;margin:auto;padding:8px 16px 40px}
+  h2{display:flex;align-items:center;gap:12px;font-weight:500;font-size:18px;margin:30px 0 14px;color:var(--ink)}
+  html[lang=en] h2{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;letter-spacing:.5px}
+  h2 i{font-style:normal;font-family:'Cinzel',serif;font-size:13px;color:var(--gold3);border:1px solid var(--gold);
+    width:32px;height:32px;display:grid;place-items:center;border-radius:50%;flex:none}
+  h2::after{content:"";flex:1;height:1px;background:linear-gradient(to left,transparent,var(--line))}
+  html[dir=ltr] h2::after{background:linear-gradient(to right,transparent,var(--line));transform:scaleX(-1)}
+
+  .products{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .card{background:rgba(255,251,245,.75);backdrop-filter:blur(6px);border-radius:20px;padding:8px 8px 14px;text-align:center;cursor:pointer;
+    border:1px solid var(--line);box-shadow:0 8px 22px rgba(120,95,60,.08);transition:.25s;position:relative;animation:up .7s both}
+  .card:nth-child(2){animation-delay:.08s}.card:nth-child(3){animation-delay:.16s}.card:nth-child(4){animation-delay:.24s}
+  @keyframes up{from{opacity:0;transform:translateY(14px)}}
+  .card img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:14px;background:var(--peach);display:block}
+  .card b{display:block;margin-top:10px;font-weight:500;font-size:15px}
+  .card span{display:block;margin-top:2px;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;color:var(--gold3)}
+  .card.sel{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold2),0 12px 28px rgba(183,154,107,.32);transform:translateY(-3px)}
+  .card.sel::after{content:"✓";position:absolute;top:14px;inset-inline-end:14px;width:26px;height:26px;border-radius:50%;
+    background:var(--gold);color:#fff;display:grid;place-items:center;font-size:14px}
+
+  form{background:rgba(255,251,245,.8);backdrop-filter:blur(8px);border-radius:24px;padding:18px;border:1px solid var(--line);box-shadow:0 14px 40px rgba(120,95,60,.1)}
+  label{display:block;margin:14px 0 6px;font-size:13px;color:var(--taupe);font-weight:500}
+  html[lang=en] label{letter-spacing:.8px;text-transform:uppercase;font-size:11px}
+  input,select{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:12px;font-size:16px;font-family:inherit;
+    color:var(--ink);background:rgba(255,255,255,.8);outline:none;transition:.2s}
+  input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(220,199,156,.35)}
+  .radios{display:flex;gap:10px}
+  .radios label{flex:1;margin:0;position:relative;cursor:pointer;text-transform:none;letter-spacing:0;font-size:14px}
+  .radios input{position:absolute;opacity:0;width:0}
+  .radios label span{display:block;text-align:center;padding:12px 6px;border-radius:12px;color:var(--ink);border:1px solid var(--line);background:rgba(255,255,255,.65);transition:.2s}
+  .radios input:checked + span{background:linear-gradient(135deg,#dcc79c,#b79a6b);color:#fff;border-color:transparent;box-shadow:0 6px 14px rgba(183,154,107,.38)}
+
+  .sum{margin-top:20px;border-radius:14px;padding:14px 16px;background:linear-gradient(160deg,rgba(255,255,255,.85),rgba(240,220,203,.55));border:1px dashed var(--gold);line-height:2.1;font-size:15px}
+  .sum div{display:flex;justify-content:space-between}
+  .sum .total{font-weight:600;font-size:19px;color:var(--gold3);border-top:1px solid var(--line);margin-top:6px;padding-top:6px}
+
+  button.go{width:100%;margin-top:18px;padding:16px;border:0;border-radius:14px;cursor:pointer;font-family:inherit;font-size:17px;font-weight:500;
+    background:linear-gradient(135deg,#b79a6b,#8c7048);color:#fffaf0;box-shadow:0 10px 24px rgba(140,112,72,.35);transition:.2s}
+  html[lang=en] button.go{letter-spacing:2px;text-transform:uppercase;font-size:14px}
+  button.go:active{transform:scale(.98)}
+  footer{text-align:center;padding:6px 0 40px;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.38em;color:var(--taupe);text-transform:uppercase}
+</style>
+</head>
+<body>
+
+
+
+<header>
+  <!-- لو عندك ملف الشعار الأصلي: ضعه في LOGO_URL (فوق في الإعدادات) و سيظهر بدل الرسم -->
+  <div id="logoBox">
+    <svg class="crown" viewBox="0 0 80 50" fill="none" stroke="#b79a6b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 40 L8 14 L24 26 L40 8 L56 26 L72 14 L68 40 Z"/><path d="M12 46 H68"/>
+      <circle cx="8" cy="12" r="2.4" fill="#b79a6b"/><circle cx="40" cy="6" r="2.4" fill="#b79a6b"/><circle cx="72" cy="12" r="2.4" fill="#b79a6b"/>
+    </svg>
+    
+  </div>
+  <h1 class="brand">SWANELIA</h1>
+  <div class="tag">Grace inspired by nature</div>
+  <div class="divider"><span>◆</span></div>
+  <a class="ig" href="https://instagram.com/swaneliaa" target="_blank">@swaneliaa</a>
+</header>
+
+<main>
+  <h2><i>I</i> <span data-i18n="h1"></span></h2>
+  <div class="products" id="products"></div>
+
+  <h2><i>II</i> <span data-i18n="h2"></span></h2>
+  <form id="form">
+    <label data-i18n="name"></label>
+    <input id="name" required data-ph="phName">
+
+    <label data-i18n="phone"></label>
+    <input id="phone" required type="tel" inputmode="tel" placeholder="05 / 06 / 07" pattern="0[567][0-9]{8}">
+
+    <label data-i18n="wilaya"></label>
+    <select id="wilaya" required></select>
+
+    <label data-i18n="commune"></label>
+    <input id="commune" required data-ph="phCommune">
+
+    <label data-i18n="dtype"></label>
+    <div class="radios">
+      <label><input type="radio" name="dtype" value="home" checked><span data-i18n="home"></span></label>
+      <label><input type="radio" name="dtype" value="desk"><span data-i18n="desk"></span></label>
+    </div>
+
+    <label data-i18n="qty"></label>
+    <input id="qty" type="number" min="1" value="1">
+
+    <div class="sum">
+      <div><span data-i18n="sProd"></span><span id="sProd">0</span></div>
+      <div><span data-i18n="sDel"></span><span id="sDel">0</span></div>
+      <div class="total"><span data-i18n="sTot"></span><span id="sTot">0</span></div>
+    </div>
+
+    <button class="go" type="submit" data-i18n="send"></button>
+  </form>
+</main>
+
+<footer>Grace inspired by nature</footer>
+
+<script>
+/* ============================================================
+   ⚙️ الإعدادات — هنا تعدّل كل شيء
+   ============================================================ */
+
+// رقم واتساب (بصيغة دولية بدون + و بدون 0): 0555123456 -> 213555123456
+const WHATSAPP = "213555000000";
+
+// استقبال الطلبات في Google Sheets: ضع هنا رابط Apps Script (الشرح في الأسفل)
+const SHEET_URL = "";
+
+// (اختياري) استقبال الطلبات في تيليغرام أيضا (اتركهما فارغين لاستعمال واتساب بدلا منه)
+const TELEGRAM_TOKEN = "";    // التوكن الذي يعطيك إياه @BotFather
+const TELEGRAM_CHAT_ID = "";  // رقم حسابك (من @userinfobot)
+
+// رابط ملف الشعار الأصلي (مثلا "logo.png" بعد وضعه بجانب index.html). اتركه فارغا لاستعمال الشعار المكتوب (الاسم + التاج).
+const LOGO_URL = "";
+
+// المنتجات: ar = الاسم بالعربية ، en = الاسم بالإنجليزية ، price = السعر بالدينار ، img = رابط الصورة
+// لإضافة منتج انسخ سطرا كاملا. للحذف امسح السطر.
+const PRODUCTS = [
+  { ar: "فستان صيفي", en: "Summer Dress", price: 3500, img: "https://placehold.co/400x500/f0dccb/8c7048?text=1" },
+  { ar: "عباية",      en: "Abaya",        price: 5200, img: "https://placehold.co/400x500/f0dccb/8c7048?text=2" },
+  { ar: "قميص",       en: "Shirt",        price: 2800, img: "https://placehold.co/400x500/f0dccb/8c7048?text=3" },
+  { ar: "بنطلون",     en: "Trousers",     price: 3200, img: "https://placehold.co/400x500/f0dccb/8c7048?text=4" }
+];
+
+// أسعار التوصيل: [رقم, الاسم بالعربية, الاسم بالإنجليزية/الفرنسية, سعر المنزل, سعر المكتب]
+// لتغيير سعر ولاية: غيّر الرقمين الأخيرين في سطرها فقط.
+const WILAYAS = [
+ [1,"أدرار","Adrar",1100,750],[2,"الشلف","Chlef",700,400],[3,"الأغواط","Laghouat",900,550],
+ [4,"أم البواقي","Oum El Bouaghi",800,450],[5,"باتنة","Batna",800,450],[6,"بجاية","Béjaïa",700,450],
+ [7,"بسكرة","Biskra",900,550],[8,"بشار","Béchar",1100,700],[9,"البليدة","Blida",500,350],
+ [10,"البويرة","Bouira",650,450],[11,"تمنراست","Tamanrasset",1500,1100],[12,"تبسة","Tébessa",800,500],
+ [13,"تلمسان","Tlemcen",800,450],[14,"تيارت","Tiaret",800,450],[15,"تيزي وزو","Tizi Ouzou",650,400],
+ [16,"الجزائر","Alger",500,350],[17,"الجلفة","Djelfa",900,550],[18,"جيجل","Jijel",700,450],
+ [19,"سطيف","Sétif",700,450],[20,"سعيدة","Saïda",800,450],[21,"سكيكدة","Skikda",700,450],
+ [22,"سيدي بلعباس","Sidi Bel Abbès",700,450],[23,"عنابة","Annaba",700,450],[24,"قالمة","Guelma",800,450],
+ [25,"قسنطينة","Constantine",700,450],[26,"المدية","Médéa",650,450],[27,"مستغانم","Mostaganem",700,450],
+ [28,"المسيلة","M'Sila",800,500],[29,"معسكر","Mascara",700,450],[30,"ورقلة","Ouargla",1000,600],
+ [31,"وهران","Oran",700,400],[32,"البيض","El Bayadh",1000,700],[33,"إليزي","Illizi",1500,1050],
+ [34,"برج بوعريريج","Bordj Bou Arréridj",700,450],[35,"بومرداس","Boumerdès",600,350],[36,"الطارف","El Tarf",800,450],
+ [37,"تندوف","Tindouf",1300,750],[38,"تيسمسيلت","Tissemsilt",800,450],[39,"الوادي","El Oued",900,550],
+ [40,"خنشلة","Khenchela",800,500],[41,"سوق أهراس","Souk Ahras",800,500],[42,"تيبازة","Tipaza",400,300],
+ [43,"ميلة","Mila",700,450],[44,"عين الدفلى","Aïn Defla",700,450],[45,"النعامة","Naâma",1000,600],
+ [46,"عين تموشنت","Aïn Témouchent",700,450],[47,"غرداية","Ghardaïa",1000,550],[48,"غليزان","Relizane",700,450],
+ [49,"تيميمون","Timimoun",1300,750],
+ // 50 برج باجي مختار و 54 عين قزام غير موجودتين في الجدول — أضفهما إذا عرفت أسعارهما:
+ // [50,"برج باجي مختار","Bordj Badji Mokhtar",0000,0000],
+ [51,"أولاد جلال","Ouled Djellal",900,550],[52,"بني عباس","Béni Abbès",1300,800],[53,"عين صالح","In Salah",1400,950],
+ // [54,"عين قزام","In Guezzam",0000,0000],
+ [55,"تقرت","Touggourt",950,600],[56,"جانت","Djanet",2200,1550],[57,"المغير","El M'Ghair",950,600],
+ [58,"المنيعة","El Meniaa",1000,550]
+];
+
+// النصوص (عربي / إنجليزي)
+const T = {
+  ar:{ h1:"اختاري المنتج / Choose your piece", h2:"معلومات التوصيل / Delivery details", name:"الاسم / Name", phone:"الهاتف / Phone",
+       wilaya:"الولاية / Wilaya", commune:"البلدية / Commune", dtype:"نوع التوصيل / Delivery", home:"المنزل / Home",
+       desk:"مكتب / Stop desk", qty:"الكمية / Quantity", sProd:"المنتج / Product", sDel:"التوصيل / Delivery", sTot:"المجموع / Total",
+       send:"تأكيد الطلب / Confirm order", phName:"الاسم و اللقب / Full name", phCommune:"اسم البلدية / Commune name",
+       pick:"اختر الولاية / Select wilaya", cur:"دج", btn:"" }
+};
+
+/* ============================================================
+   ⛔ ما تحت هذا السطر لا تحتاج تعديله
+   ============================================================ */
+const $ = id => document.getElementById(id);
+let selected = 0, lang = "ar";
+
+
+if(LOGO_URL){ $("logoBox").innerHTML = `<img class="logo-img" src="${LOGO_URL}" alt="Swanelia">`; }
+
+const dtype = () => document.querySelector('input[name="dtype"]:checked').value;
+const fmt = n => n.toLocaleString("fr-DZ") + " " + T[lang].cur;
+
+function renderProducts(){
+  $("products").innerHTML = "";
+  PRODUCTS.forEach((p,i)=>{
+    const d = document.createElement("div");
+    d.className = "card" + (i===selected?" sel":"");
+    d.innerHTML = `<img src="${p.img}" alt=""><b>${p.ar} / ${p.en}</b><span>${fmt(p.price)}</span>`;
+    d.onclick = ()=>{ selected=i; renderProducts(); calc(); };
+    $("products").appendChild(d);
+  });
+}
+
+function renderWilayas(){
+  const cur = $("wilaya").value;
+  $("wilaya").innerHTML = `<option value="">${T[lang].pick}</option>` +
+    WILAYAS.map(w=>`<option value="${w[0]}">${w[0]} - ${w[1]} / ${w[2]}</option>`).join("");
+  $("wilaya").value = cur;
+}
+
+function setLang(l){
+  lang = l;
+  document.documentElement.lang = l;
+  document.documentElement.dir = l==="ar" ? "rtl" : "ltr";
+  document.querySelectorAll("[data-i18n]").forEach(e=> e.textContent = T[l][e.dataset.i18n]);
+  document.querySelectorAll("[data-ph]").forEach(e=> e.placeholder = T[l][e.dataset.ph]);
+  renderProducts(); renderWilayas(); calc();
+}
+
+function delivery(){
+  const w = WILAYAS.find(x=>x[0]==$("wilaya").value);
+  if(!w) return 0;
+  return dtype()==="home" ? w[3] : w[4];
+}
+function calc(){
+  const prod = PRODUCTS[selected].price * (parseInt($("qty").value)||1);
+  const del = delivery();
+  $("sProd").textContent = fmt(prod);
+  $("sDel").textContent = fmt(del);
+  $("sTot").textContent = fmt(prod+del);
+}
+["wilaya","qty"].forEach(id=>$(id).addEventListener("input",calc));
+document.querySelectorAll('input[name="dtype"]').forEach(r=>r.addEventListener("change",calc));
+
+// إرسال الطلب عبر واتساب (الرسالة تصلك دائما بالعربية)
+$("form").addEventListener("submit",e=>{
+  e.preventDefault();
+  const w = WILAYAS.find(x=>x[0]==$("wilaya").value);
+  const p = PRODUCTS[selected];
+  const qty = parseInt($("qty").value)||1;
+  const del = delivery();
+  const msg =
+`🛍️ طلب جديد
+المنتج: ${p.ar} × ${qty}
+الاسم: ${$("name").value}
+الهاتف: ${$("phone").value}
+الولاية: ${w[0]} - ${w[1]}
+البلدية: ${$("commune").value}
+التوصيل: ${dtype()==="home"?"إلى المنزل":"مكتب (Stop desk)"}
+سعر المنتج: ${p.price*qty} دج
+سعر التوصيل: ${del} دج
+المجموع: ${p.price*qty+del} دج`;
+  const data = { name:$("name").value, phone:$("phone").value, wilaya:w[0]+" - "+w[1], commune:$("commune").value,
+    product:p.ar, qty:qty, delivery:(dtype()==="home"?"المنزل":"مكتب"), prodPrice:p.price*qty, delPrice:del, total:p.price*qty+del };
+  const jobs = [];
+  if(SHEET_URL) jobs.push(fetch(SHEET_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify(data)}));
+  if(TELEGRAM_TOKEN && TELEGRAM_CHAT_ID) jobs.push(fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`,{
+      method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({chat_id:TELEGRAM_CHAT_ID, text:msg}) }));
+  if(jobs.length){
+    const btn = document.querySelector("button.go"); btn.disabled = true;
+    Promise.all(jobs).then(()=>{
+      $("form").innerHTML = `<div style="text-align:center;padding:34px 10px;font-size:18px;line-height:2">✓ تم استلام طلبك، سنتصل بك قريبا<br>Order received, we will call you soon</div>`;
+    }).catch(()=>{ btn.disabled = false; alert("حدث خطأ، حاول مرة أخرى / Error, please try again"); });
+  } else {
+    window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`,"_blank");
+  }
+});
+
+setLang(lang);
+</script>
+</body>
+</html>
